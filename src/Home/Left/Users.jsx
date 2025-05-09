@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Users = () => {
+const Users = ({user}) => {
   return (
   <>
     <div className="flex items-center gap-4  space-x-4 mt-4 px-4 py-2 hover:bg-slate-800 duration-300 cursor-pointer">
@@ -13,8 +13,8 @@ const Users = () => {
         </div>
         <div className='flex-wrap'>
 
-            <h2  className='font-[700]'>Raza</h2>
-            <span>anusraza234@gmail.com</span>
+            <h2  className='font-[700]'>{user.fullname}</h2>
+            <span>{user.email}</span>
         </div>
       </div>
   </>

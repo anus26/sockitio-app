@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuth } from '../context/AuthProvider';
+import { Link, Navigate } from 'react-router-dom';
 
 const Login = () => {
     const [authUser,setAuthUser]=useAuth()
@@ -29,6 +30,7 @@ const Login = () => {
         }
         localStorage.setItem("chatapp",JSON.stringify(response.data))
         setAuthUser(response.data)
+      
     })
     .catch((error)=>{
       if (error.response) {
@@ -83,7 +85,7 @@ const Login = () => {
         <div className="flex items-center justify-between">
           <p className="text-sm">
             New user ?{' '}
-            <span className="text-blue-400 underline cursor-pointer">Singnup</span>
+            <Link className="text-blue-400 underline cursor-pointer"  to="/singnup">Singnup</Link>
           </p>
           <input
             type="submit"

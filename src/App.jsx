@@ -4,6 +4,7 @@ import Right from './Home/right/right'
 import Singnup from './Components/singnup'
 import Login from './Components/Login'
 import { useAuth } from './context/AuthProvider'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 
 const App = () => {
@@ -12,15 +13,19 @@ const App = () => {
   
   return (
     <>
- <div className='flex h-screen  main'>
-  <Left/>
-<Right/>
-</div>  
+   <Routes>
+    <Route path='/' element={
+      authUser?  <div className='flex h-screen  main'>
+      <Left/>
+    <Right/>
+    </div>  :  (<Navigate to={"/login"}/>)
+    }/>
 
- 
-  
-  <Singnup/>
-   <Login/>
+    <Route path='/login' element={ authUser? <Navigate to={"/"}/>: <Login/>}/>
+    <Route path='/singnup' element={ authUser? <Navigate to={"/login"}/>: <Singnup/>}/>
+
+   </Routes>
+
  
     </>
 
