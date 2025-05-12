@@ -3,7 +3,10 @@ import Chatuser from './Chatuser'
 import Message from './Message'
 import Typesend from './Typesend'
 
+
 const Right = () => {
+ 
+  
   return (
 <>
 <div className='text-gray-300 bg-blue-900 w-[70%] '>
