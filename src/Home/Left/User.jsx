@@ -5,7 +5,7 @@ import useGetAllUser from '../../context/useGetAllUser.jsx';
 const User = () => {
 
   const [alluser,loading]=useGetAllUser()
-  console.log(alluser,loading);
+  // console.log(alluser,loading);
   
   return (
     <>

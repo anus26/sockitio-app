@@ -2,7 +2,8 @@ import React from 'react'
 import Search from './search'
 import User from './User'
 import Logout from './Logout'
-import Users from './Users'
+
+
 
 const Left = () => {
   return (

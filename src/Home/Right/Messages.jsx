@@ -1,43 +1,33 @@
 import React from 'react'
 
-const Messages = () => {
+
+
+const Messages=({ message }) =>{
+  const authUser = JSON.parse(localStorage.getItem("chatapp"));
+  const itsMe = message.senderId === authUser.user._id;
+
+  
+
+  const chatName = itsMe ? " chat-start" : "chat-end";
+  const chatColor = itsMe ? "bg-blue-500" : "bg-green-500";
+
+  const createdAt = new Date(message.createdAt);
+  const formattedTime = createdAt.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   return (
     <div>
-<div className="chat chat-start p-4">
-  <div className="chat-image avatar">
-    <div className="w-10 rounded-full">
-      <img
-        alt="Tailwind CSS chat bubble component"
-        src="https://img.daisyui.com/images/profile/demo/kenobee@192.webp"
-      />
+      <div className="p-4">
+        <div className={`chat ${chatName}`}>
+          <div className={`chat-bubble text-white ${chatColor}`}>
+            {message.message}
+          </div>
+          <div className="chat-footer">{formattedTime}</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div className="chat-header ">
-    Obi-Wan Kenobi
-    <time className="text-xs opacity-50">12:45</time>
-  </div>
-  <div className="chat-bubble">You were the Chosen One!</div>
-  <div className="chat-footer opacity-50">Delivered</div>
-</div>
-<div className="chat chat-end p-4">
-  <div className="chat-image avatar">
-    <div className="w-10 rounded-full">
-      <img
-        alt="Tailwind CSS chat bubble component"
-        src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp"
-      />
-    </div>
-  </div>
-  <div className="chat-header">
-    Anakin
-    <time className="text-xs opacity-50">12:46</time>
-  </div>
-  <div className="chat-bubble">I hate you!</div>
-  <div className="chat-footer opacity-50">Seen at 12:46</div>
-</div>
-
-    </div>
-  )
+  );
 }
 
-export default Messages
+export default Messages;

@@ -1,16 +1,17 @@
 import React from 'react';
-import useConversation from '../../zustand/useConversation';
+import useChat from '../../zustand/useChat.js';
 
 const Users = ({ user }) => {
-  const { selectedConversation, setSelectedConversation } = useConversation();
-  const isSelected = selectedConversation?._id === user._id;
+  const {  selectedChat, setSelectedChat } = useChat();
+  const isSelected =  selectedChat?._id === user._id;
+
 
   return (
     <div
       className={`hover:bg-slate-600 duration-300 p-3 rounded cursor-pointer ${
         isSelected ? 'bg-slate-600' : ''
       }`}
-      onClick={() => setSelectedConversation(user)}
+      onClick={() =>setSelectedChat(user)}
     >
       <div className="flex items-center space-x-4">
         <div className="avatar online placeholder">

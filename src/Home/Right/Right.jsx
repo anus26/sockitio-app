@@ -1,7 +1,11 @@
 import React from 'react'
-import Chatuser from './Chatuser'
-import Message from './Message'
-import Typesend from './Typesend'
+import Chatuser from './Chatuser.jsx'
+
+import Message from './Message.jsx'; // correct
+ // ✅ import named export
+import Typesend from './Typesend.jsx'
+
+
 
 
 const Right = () => {

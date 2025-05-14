@@ -21,7 +21,9 @@ const Login = () => {
       
     }
     // console.log(UserInfo);
-    axios.post("http://localhost:3000/user/login",UserInfo)
+    axios.post("http://localhost:3000/user/login", UserInfo, {
+      withCredentials: true, // ✅ اس لائن کو add کریں
+    })
     .then((response)=>{
         console.log(response.data);
         if (response.data) {
