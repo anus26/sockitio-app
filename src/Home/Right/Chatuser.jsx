@@ -12,7 +12,11 @@ const Chatuser = () => {
     <img src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp" />
   </div>
   <div className='flex-wrap'>
-    <h2 className='text-2xl'></h2>
+    <h2 className='text-2xl'>{selectedChat ? (
+  <p>{selectedChat.fullname}</p>
+) : (
+  <p>Select a user to start chatting</p>
+)}</h2>
     <span>online</span>
   </div>
 </div>

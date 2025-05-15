@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Messages from "./Messages.jsx"; // This is the single message component
 import Loading from "../../Components/Loading.jsx";
 import useGetMessages from "../../context/useGetMessages.js";
@@ -7,7 +7,11 @@ const Message=()=> {
   const { loading, messages } = useGetMessages();
   const lastMsgRef = useRef(null);
   console.log(messages);
-  
+  useEffect(()=>{
+    setTimeout(()=>{
+      lastMsgRef.current.scrollIntoView({behavior:"smooth"})
+    },100)
+  },[])
 
   return (
     <div
