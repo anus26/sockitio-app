@@ -1,11 +1,15 @@
 import React from 'react';
 import useChat from '../../zustand/useChat.js';
+import { useSocketcontext } from '../../context/SocketContext.jsx';
+
+
 
 const Users = ({ user }) => {
   const {  selectedChat, setSelectedChat } = useChat();
   const isSelected =  selectedChat?._id === user._id;
 
-
+const {socket,onlineUsers}=useSocketcontext()
+const isonline=onlineUsers.includes(user._id)
   return (
     <div
       className={`hover:bg-slate-600 duration-300 p-3 rounded cursor-pointer ${
@@ -14,7 +18,7 @@ const Users = ({ user }) => {
       onClick={() =>setSelectedChat(user)}
     >
       <div className="flex items-center space-x-4">
-        <div className="avatar online placeholder">
+        <div className={  ` avatar ${isonline}  ?"online":""`  }>
           <div className="bg-neutral text-neutral-content rounded-full w-12 h-12 flex items-center justify-center">
             <span className="text-xl">AI</span>
           </div>

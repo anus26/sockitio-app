@@ -2,16 +2,14 @@ import React, { useEffect, useRef } from "react";
 import Messages from "./Messages.jsx"; // This is the single message component
 import Loading from "../../Components/Loading.jsx";
 import useGetMessages from "../../context/useGetMessages.js";
+import useGetMessage from "../../context/useGetMessage.js";
 
 const Message=()=> {
   const { loading, messages } = useGetMessages();
-  const lastMsgRef = useRef(null);
+  useGetMessage()// incomgin messages
+
   console.log(messages);
-  useEffect(()=>{
-    setTimeout(()=>{
-      lastMsgRef.current.scrollIntoView({behavior:"smooth"})
-    },100)
-  },[])
+
 
   return (
     <div
@@ -24,7 +22,7 @@ const Message=()=> {
         messages.map((message, index) => (
           <div
             key={message._id}
-            ref={index === messages.length - 1 ? lastMsgRef : null}
+    
           >
             <Messages message={message} />
           </div>

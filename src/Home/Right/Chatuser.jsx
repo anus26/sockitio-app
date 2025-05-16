@@ -1,9 +1,14 @@
 import React from 'react'
 import useChat from '../../zustand/useChat.js'
+import { useSocketcontext } from '../../context/SocketContext.jsx';
 
 const Chatuser = () => {
   const {selectedChat}=useChat()
   console.log("Selected Chat: ", selectedChat);
+  const {onlineUsers}=useSocketcontext()
+  const getOnlineUsersstatus=(userId)=>{
+    return onlineUsers.includes(userId)? "Online" :"Offline"
+  }
   
   return (
     <div className='bg-gray-800 hover:bg-gray-700   duration-300 flex items-center justify-center space-x-3 gap-3 h-[10vh]'>
@@ -17,7 +22,7 @@ const Chatuser = () => {
 ) : (
   <p>Select a user to start chatting</p>
 )}</h2>
-    <span>online</span>
+    {/* <span >{    getOnlineUsersstatus:{selectedChat.id}? 'Online' : 'Offline'}</span> */}
   </div>
 </div>
     </div>
