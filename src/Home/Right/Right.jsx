@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import Chatuser from './Chatuser.jsx'
 
 import Message from './Message.jsx'; // correct
- // ✅ import named export
+
 import Typesend from './Typesend.jsx'
 import useChat from '../../zustand/useChat.js';
-import Loading from '../../Components/Loading.jsx';
+
 import { useAuth } from '../../context/AuthProvider.jsx';
 
 

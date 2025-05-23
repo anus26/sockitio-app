@@ -9,7 +9,7 @@ const Users = ({ user }) => {
   const isSelected =  selectedChat?._id === user._id;
 
 const {socket,onlineUsers}=useSocketcontext()
-const isonline=onlineUsers.includes(user._id)
+const isOnline=onlineUsers.includes( user._id)
   return (
     <div
       className={`hover:bg-slate-600 duration-300 p-3 rounded cursor-pointer ${
@@ -18,10 +18,18 @@ const isonline=onlineUsers.includes(user._id)
       onClick={() =>setSelectedChat(user)}
     >
       <div className="flex items-center space-x-4">
-        <div className={  ` avatar ${isonline}  ?"online":""`  }>
+        <div className="relative w-12 h-12">
           <div className="bg-neutral text-neutral-content rounded-full w-12 h-12 flex items-center justify-center">
             <span className="text-xl">AI</span>
           </div>
+          {isOnline &&(
+            <span 
+            className='absolute bottom-0 right-0 block h-3 w-3 bg-green-400 border-2 border-white rounded-full'
+            title='online'
+            >
+
+            </span>
+          )}
         </div>
         <div>
           <h2 className="font-bold">{user.fullname}</h2>

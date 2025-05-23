@@ -5,7 +5,10 @@ const useChat = create((set) => ({
   setSelectedChat: (selectedChat) =>
     set({ selectedChat }),
   messages: [],
-  setMessage: (messages) => set({ messages }),
+  setMessage: (messages) => set({ messages })
 }));
 export default useChat;
+
+
+
 

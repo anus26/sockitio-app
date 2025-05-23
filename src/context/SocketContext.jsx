@@ -14,24 +14,29 @@ export const SocketContext = createContext();
 const SocketProvider = (   {children}) => {
   const [socket, setSocket] = useState(null);
   const [authUser] = useAuth();
-  const [onlineUsers,setOlineUsers]=useState([])
+  const [onlineUsers,setOnlineUsers]=useState([])
   // 2. Connect to socket server when user is authenticated
   useEffect(() => {
-    if (authUser?.user?.id) {
-      const newSocket = io("http://localhost:3000", {
+    console.log("🧠 AuthUser at socket init:", authUser);
+  
+    if (authUser?.user?._id) {
+      const socket = io("http://localhost:3000", {
         query: {
           userId: authUser.user._id,
         },
+        withCredentials: true,
       });
-
-      setSocket(newSocket);
-
-      newSocket.on("getOnlineUsers", (users) => {
-        setOlineUsers(users);
+  
+      setSocket(socket);
+  
+      socket.on("getOnlineUsers", (users) => {
+        setOnlineUsers(users);
+        console.log("🟢 Online Users:", users);
+        console.log("🟢 Socket ID:", socket.id);
       });
-
+  
       return () => {
-        newSocket.disconnect();
+        socket.disconnect();
       };
     } else {
       if (socket) {
@@ -40,6 +45,7 @@ const SocketProvider = (   {children}) => {
       }
     }
   }, [authUser]);
+  
 
   return (
     <SocketContext.Provider value={{ socket, onlineUsers }}>

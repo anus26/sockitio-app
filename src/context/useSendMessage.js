@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 const useSendMessage = () => {
     const [loading, setLoading] = useState(false);
-    const { messages, setMessage, selectedChat } = useChat();
+    const { messages,selectedChat,setMessage,newMessage}=useChat()
     const sendMessages = async (message) => {
 
        
@@ -23,13 +23,10 @@ const useSendMessage = () => {
                     },
                     withCredentials: true,
               }
-            );
- 
-          
-            
-  
-            console.log("📥 Messages from backend:", response.data.messages);
-            setMessage([...messages,response.data]);
+            )
+            console.log("📥 Messages from backend:", response.data,message)
+           
+      setMessage([...messages, response.data]);
           } catch (error) {
             console.error("❌ Failed to send messages:", error);
           } finally {

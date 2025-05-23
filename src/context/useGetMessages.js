@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 const useGetMessages = () => {
   const [loading, setLoading] = useState(false);
-  const { messages, setMessage, selectedChat } = useChat();
+  const {selectedChat,setMessage,messages}= useChat();
 
   useEffect(() => {
     const getMessages = async () => {
@@ -27,8 +27,8 @@ const useGetMessages = () => {
           console.log("Selected Chat: ", selectedChat);
         
           
-
-          console.log("📥 Messages from backend:", response.data.messages);
+          console.log("📥 Messages from backend:", response.data.messages)
+           
           setMessage(response.data.messages);
         } catch (error) {
           console.error("❌ Failed to fetch messages:", error);
@@ -39,8 +39,7 @@ const useGetMessages = () => {
     };
 
     getMessages();
-  }, [selectedChat, setMessage]);
-
+  }, [selectedChat, setMessage,]);
   return { loading, messages };
 };
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { BiLogOutCircle } from "react-icons/bi";
 import Cookies from 'js-cookie';
+import toast from 'react-hot-toast';
 const Logout = () => {
   const [loading, setLoading]=useState(false)
   const handlelogout=async()=>{
@@ -14,10 +15,12 @@ setLoading(false)
 console.log(response);
 
 
-  alert("logout successfully")
+  toast.success("logout successfully")
   window.location.reload()
 } catch (error) {
   console.log("Error",+error);
+  
+  toast.error("error ")
   
 }
   }

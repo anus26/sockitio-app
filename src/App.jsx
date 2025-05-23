@@ -5,7 +5,7 @@ import Singnup from './Components/singnup'
 import Login from './Components/Login'
 import { useAuth } from './context/AuthProvider'
 import { Navigate, Route, Routes } from 'react-router-dom'
-
+import  { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const [authUser,setAuthUser]=useAuth()
@@ -26,6 +26,7 @@ const App = () => {
 
    </Routes>
 
+<Toaster/>
  
     </>
 

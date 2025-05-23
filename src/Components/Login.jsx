@@ -3,13 +3,14 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuth } from '../context/AuthProvider';
 import { Link, Navigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [authUser,setAuthUser]=useAuth()
   const {
     register,
     handleSubmit,
-    watch,
+    
     formState: { errors },
   } = useForm();
 
@@ -22,13 +23,13 @@ const Login = () => {
     }
     // console.log(UserInfo);
     axios.post("http://localhost:3000/user/login", UserInfo, {
-      withCredentials: true, // ✅ اس لائن کو add کریں
+      withCredentials: true,// ✅ اس لائن کو add کریں
     })
     .then((response)=>{
         console.log(response.data);
         if (response.data) {
             
-            alert("successfully login")
+            toast.success("successfully login")
         }
         localStorage.setItem("chatapp",JSON.stringify(response.data))
         setAuthUser(response.data)
@@ -36,7 +37,7 @@ const Login = () => {
     })
     .catch((error)=>{
       if (error.response) {
-        alert("Error:"+error.response.data.error)
+        toast.error("Error:"+error.response.data.error)
         
       }
         

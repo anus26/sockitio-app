@@ -1,39 +1,57 @@
 import React, { useEffect, useRef } from "react";
-import Messages from "./Messages.jsx"; // This is the single message component
-import Loading from "../../Components/Loading.jsx";
-import useGetMessages from "../../context/useGetMessages.js";
+import Messages from "./Messages";
 import useGetMessage from "../../context/useGetMessage.js";
-
-const Message=()=> {
+import Loading from "../../components/Loading.jsx";
+import useGetMessages from "../../context/useGetMessages.js";
+function Message() {
   const { loading, messages } = useGetMessages();
-  useGetMessage()// incomgin messages
+  useGetMessage(); // listing incoming messages
+  console.log(messages)
 
-  console.log(messages);
-
-
+  const lastMsgRef = useRef();
+  useEffect(() => {
+    setTimeout(() => {
+      if (lastMsgRef.current) {
+        lastMsgRef.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  }, [messages]);
   return (
     <div
       className="flex-1 overflow-y-auto"
       style={{ minHeight: "calc(92vh - 8vh)" }}
     >
-      {loading ? (
+         {loading ? (
         <Loading />
-      ) : messages.length > 0 ? (
-        messages.map((message, index) => (
-          <div
-            key={message._id}
-    
-          >
-            <Messages message={message} />
+      ) : (
+        messages.length > 0 &&
+        messages.map((message) => (
+          <div ref={lastMsgRef} key={message._id}>
+            <Messages  message={message} />
           </div>
         ))
-      ) : (
-        <div className="flex justify-center items-center h-full">
-          <p className="text-center mt-[20%] text-white">
+      )}
+
+      {!loading && messages.length === 0 && (
+        <div>
+          <p className="text-center mt-[20%]">
             Say! Hi to start the conversation
           </p>
         </div>
-      )}
+      )}  
+
+
+{/* {messages.map((message,person) => (
+          <div  key={person._id}>
+            <Messages  message={message}/>
+          </div>
+        ))} */}
+
+
+
+
     </div>
   );
 }

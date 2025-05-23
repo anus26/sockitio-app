@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { IoSend } from "react-icons/io5";
 import useSendMessage from '../../context/useSendMessage.js';
 const Typesend = () => {
-const [message,setMessage]=useState("")
+const [messages,setMessage]=useState("")
 const {loading,sendMessages}=useSendMessage()
 
 const handlesubmit=async(e)=>{
   e.preventDefault()
-  await sendMessages(message )
+  await sendMessages(messages )
   setMessage("")
 }
 
@@ -20,7 +20,7 @@ const handlesubmit=async(e)=>{
         <input
       
   type="text"
-  value={message}
+  value={messages}
   onChange={(e) => setMessage(e.target.value)}
   placeholder="Type here"
   className="input w-full rounded-[10px]"
