@@ -22,7 +22,7 @@ const SocketProvider = (   {children}) => {
     if (authUser?.user?._id) {
       const socket = io("http://localhost:3000", {
         query: {
-          userId: authUser.user._id,
+          userId: authUser.user._id 
         },
         withCredentials: true,
       });
@@ -55,4 +55,6 @@ const SocketProvider = (   {children}) => {
 };
 
 export default SocketProvider;
+
+
 

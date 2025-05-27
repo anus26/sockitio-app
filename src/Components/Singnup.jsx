@@ -2,17 +2,21 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuth } from '../context/AuthProvider';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+
 
 const Signup = () => {
     const [authUser,setAuthUser]= useAuth()
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
+
 
   const onSubmit = async(data) => {
     const UserInfo={
@@ -26,14 +30,15 @@ const Signup = () => {
       withCredentials: true,
     })
     .then((response)=>{
-        console.log(response.data);
+      console.log(response.data);
+ 
         if (response.data) {
             
             toast.success("successfully registerd")
         }
         localStorage.setItem("chatapp",JSON.stringify(response.data))
         setAuthUser(response.data)
-       
+
     })
     .catch((error)=>{
       if (error.response) {

@@ -15,7 +15,7 @@ const handlesubmit=async(e)=>{
     <form onSubmit={handlesubmit}>
 
 
-    <div className='flex space-x-2 h-[10vh] text-center  bg-slate-700'>
+    <div className='flex space-x-2 h-[8vh] text-center  bg-slate-700'>
         <div className='w-[50%] px-4 py-2 text-black'>
         <input
       

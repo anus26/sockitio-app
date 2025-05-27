@@ -1,10 +1,12 @@
 import React from 'react';
 import useChat from '../../zustand/useChat.js';
 import { useSocketcontext } from '../../context/SocketContext.jsx';
+import Left from '../Left/Left.jsx';
+import { IoArrowBackSharp } from 'react-icons/io5';
 
 
 const Chatuser = () => {
-  const { selectedChat } = useChat();
+  const { selectedChat, setSelectedChat } = useChat();
   const { onlineUsers } = useSocketcontext();
 
    const isOnline = selectedChat
@@ -13,14 +15,29 @@ const Chatuser = () => {
 
   return (
     <div className='bg-gray-800 hover:bg-gray-700 duration-300 flex items-center space-x-3 p-4 h-[10vh]'>
-      <div className="avatar">
+      {/* <div className="avatar">
         <div className="mask mask-squircle w-14">
           <img src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp" />
         </div>
-      </div>
+      </div> */}
 
-      <div className='flex-1'>
+   
+
+      <div className='flex-2'>
+                     <div className="drawer">
+
+<button 
+onClick={()=>setSelectedChat(null)}
+className='lg:hidden p-2 text-white'
+>
+<IoArrowBackSharp />
+</button>
+  
+    
+  </div>
+</div>
         <h2 className='text-2xl flex items-center space-x-2'>
+
           {selectedChat 
             ? selectedChat.fullname 
             : 'Select a user to start chatting'}
@@ -39,7 +56,7 @@ const Chatuser = () => {
           </p>
         )}
       </div>
-    </div>
+
   );
 };
 

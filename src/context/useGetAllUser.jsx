@@ -36,7 +36,7 @@ const useGetAllUser = () => {
 
   // filter out the logged‑in user (if any)
   const filtered = authUser
-    ? users.filter(u => (u.id ?? u._id) !== authUser.user._id)
+    ? users.filter(u => (u.id ?? u._id) !== authUser.user?._id  )
     : users;
 
   return [filtered, loading];

@@ -1,5 +1,5 @@
 import React from 'react'
-import Left from './Home/Left/left'
+import Left from './Home/Left/Left'
 import Right from './Home/right/right'
 import Singnup from './Components/singnup'
 import Login from './Components/Login'
@@ -14,11 +14,18 @@ const App = () => {
   return (
     <>
    <Routes>
+
+
     <Route path='/' element={
-      authUser?  <div className='flex h-screen  main'>
+       authUser?(
+      <div className='flex h-screen  main'>
       <Left/>
     <Right/>
-    </div>  :  (<Navigate to={"/login"}/>)
+    </div>  
+  
+
+    ):  (
+    <Navigate to={"/login"}/>)
     }/>
 
     <Route path='/login' element={ authUser? <Navigate to={"/"}/>: <Login/>}/>

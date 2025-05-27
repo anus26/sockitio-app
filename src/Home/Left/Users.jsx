@@ -4,12 +4,12 @@ import { useSocketcontext } from '../../context/SocketContext.jsx';
 
 
 
-const Users = ({ user }) => {
+const Users = ({ user  }) => {
   const {  selectedChat, setSelectedChat } = useChat();
   const isSelected =  selectedChat?._id === user._id;
 
 const {socket,onlineUsers}=useSocketcontext()
-const isOnline=onlineUsers.includes( user._id)
+const isOnline=onlineUsers.includes( user._id )
   return (
     <div
       className={`hover:bg-slate-600 duration-300 p-3 rounded cursor-pointer ${

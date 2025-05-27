@@ -25,7 +25,7 @@ const User = () => {
           <p className="text-gray-400 p-4">No other users to chat with.</p>
         ) : (
           users.map(user => (
-            <Users key={ user._id} user={user} />
+            <Users key={ user._id} user={user } />
           ))
         )}
       </div>
