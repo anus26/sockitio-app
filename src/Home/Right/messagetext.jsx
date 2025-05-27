@@ -3,7 +3,7 @@ import Messages from "./Messages.jsx";
 import useGetMessage from "../../context/useGetMessage.js";
 
 import useGetMessages from "../../context/useGetMessages.js";
-import Loading from "../../components/Loading";
+import Loading from "../../Components/Loading.jsx";
 const messagetext=()=>{
   const { loading, messages } = useGetMessages();
   useGetMessage(); // listing incoming messages
