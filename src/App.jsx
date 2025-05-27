@@ -1,7 +1,6 @@
 import React from 'react'
 import Left from './Home/Left/Left'
-
-import Right from './Home/right/right'
+import Right from './Home/Right/Right'
 import Singnup from './Components/Singnup'
 import Login from './Components/Login'
 import { useAuth } from './context/AuthProvider'
