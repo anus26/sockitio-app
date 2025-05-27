@@ -3,8 +3,8 @@ import Messages from "./Messages.jsx";
 import useGetMessage from "../../context/useGetMessage.js";
 
 import useGetMessages from "../../context/useGetMessages.js";
-import Loading from "../../components/Loading.jsx";
-const Message=()=>{
+import Loading from "../../components/Loading";
+const messagetext=()=>{
   const { loading, messages } = useGetMessages();
   useGetMessage(); // listing incoming messages
   console.log(messages)
@@ -57,4 +57,4 @@ const Message=()=>{
   );
 }
 
-export default Message;
+export default messagetext;
