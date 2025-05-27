@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import Chatuser from './Chatuser.jsx';
-import Message from './Message.jsx';
-import Typesend from './Typesend.jsx';
-import useChat from '../../zustand/useChat.js';
-import { useAuth } from '../../context/AuthProvider.jsx';
+import Chatuser from './Type';
+import Message from './messagetext';
+import Typesend from './Typesend';
+import useChat from '../../zustand/useChat';
+import { useAuth } from '../../context/AuthProvider';
 const Right = () => {
   const { selectedChat, setSelectedChat } = useChat();
 
