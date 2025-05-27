@@ -1,12 +1,11 @@
 import React from 'react';
-import Search from './search';
+import Search from './Search';
 import User from './User';
 import Logout from './Logout';
 
-import { useSocketcontext } from '../../context/SocketContext';
 import useChat from '../../zustand/useChat';
 
-const Left = ({user}) => {
+const Left = () => {
 const {selectedChat}=useChat()
   
   return (
