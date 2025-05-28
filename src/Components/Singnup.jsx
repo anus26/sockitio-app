@@ -38,7 +38,7 @@ const Signup = () => {
             toast.success("successfully registerd")
         }
         localStorage.setItem("chatapp",JSON.stringify(response.data))
-        Cookies.set("jwt",JSON.stringify(response.data))
+    Cookies.set("jwt", response.data.token);        
         setAuthUser(response.data)
 
     })
