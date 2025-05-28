@@ -1,16 +1,28 @@
 import React, { createContext, useContext, useState } from 'react'
-export const AuthContext=createContext()
 import Cookies from 'js-cookie'; 
-export const AuthProvider = ({children}) => {
-    const initialuserstate=Cookies.get("jwt") || localStorage.getItem("chatapp")
 
-    const [authUser, setAuthUser]=useState(initialuserstate ? JSON.parse(initialuserstate):undefined)
+export const AuthContext = createContext()
+
+export const AuthProvider = ({ children }) => {
+  const cookieUser = Cookies.get("jwt")
+  const localUser = localStorage.getItem("chatapp")
+
+  let parsedUser = undefined
+  try {
+    if (localUser) {
+      parsedUser = JSON.parse(localUser)
+    }
+  } catch (err) {
+    console.error("❌ Failed to parse localStorage chatapp:", err)
+  }
+
+  const [authUser, setAuthUser] = useState(parsedUser)
+
   return (
-   <AuthContext.Provider value={[authUser,setAuthUser]}>
-    {children}
-
-   </AuthContext.Provider>
+    <AuthContext.Provider value={[authUser, setAuthUser]}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 
-export const  useAuth=()=> useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext)
