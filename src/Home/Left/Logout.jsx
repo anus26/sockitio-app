@@ -8,7 +8,7 @@ const Logout = () => {
   const handlelogout=async()=>{
 setLoading(true)
 try {
-  const response=await axios.post("http://localhost:3000/user/logout")
+  const response=await axios.post("https://socket-io-chat-app-liart.vercel.app/logout")
 localStorage.removeItem("chatapp")
 Cookies.remove("jwt")
 setLoading(false)

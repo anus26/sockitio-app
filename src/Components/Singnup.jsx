@@ -26,7 +26,7 @@ const Signup = () => {
         confirmpassword:data.confirmpassword
     }
     // console.log(UserInfo);
-    await axios.post("http://localhost:3000/user/singnup",UserInfo,{
+    await axios.post(" https://socket-io-chat-app-liart.vercel.app/singnup",UserInfo,{
       withCredentials: true,
     })
     .then((response)=>{

@@ -20,7 +20,7 @@ const SocketProvider = (   {children}) => {
     console.log("🧠 AuthUser at socket init:", authUser);
   
     if (authUser?.user?._id) {
-      const socket = io("http://localhost:3000", {
+      const socket = io("https://socket-io-chat-app-liart.vercel.app", {
         query: {
           userId: authUser.user._id 
         },
