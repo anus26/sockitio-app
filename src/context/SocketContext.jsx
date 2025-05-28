@@ -21,7 +21,7 @@ const SocketProvider = (   {children}) => {
   
     if (authUser?.user?._id) {
       const socket = io("https://socket-io-chat-app-liart.vercel.app", {
-        query: {
+        auth: {
           userId: authUser.user._id 
         },
         withCredentials: true,

@@ -13,7 +13,7 @@ const useGetAllUser = () => {
     const getUsers = async () => {
       setLoading(true);
       try {
-        // const token = Cookies.get('jwt');
+        const token = Cookies.get('jwt');
         const { data } = await axios.get(
           'https://socket-io-chat-app-liart.vercel.app/user/alluser',
           {
