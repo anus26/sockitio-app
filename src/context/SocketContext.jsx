@@ -25,6 +25,7 @@ const SocketProvider = (   {children}) => {
           userId: authUser.user._id 
         },
         withCredentials: true,
+          transports: ['websocket'],
       });
   
       setSocket(socket);

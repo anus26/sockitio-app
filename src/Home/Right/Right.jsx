@@ -36,7 +36,7 @@ const NoChat = () => {
   const [authUser] = useAuth();
 
   return (
-    <div className="flex items-center justify-center h-full text-center px-4  md:hidden sm:hidden lg:block xl:block">
+    <div className="flex items-center justify-center h-full text-center px-4 sm:hidden md:hidden   lg:block xl:block">
       <div className=''>
         <h1 className="text-2xl font-semibold mb-2">
           Welcome, <span className="text-white font-bold">{authUser?.user?.fullname || "Guest"}</span>
