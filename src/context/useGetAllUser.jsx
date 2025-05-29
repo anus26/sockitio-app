@@ -13,12 +13,12 @@ const useGetAllUser = () => {
     const getUsers = async () => {
       setLoading(true);
       try {
-        const token = Cookies.get('jwt');
+      
         const { data } = await axios.get(
           'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser',
           {
             withCredentials: true,
-            headers: { Authorization: `Bearer ${token}` },
+ 
           }
         );
         setUsers(Array.isArray(data) ? data : []);
