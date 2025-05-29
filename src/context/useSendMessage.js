@@ -14,7 +14,7 @@ const useSendMessage = () => {
   
           try {
             const response = await axios.post(
-              `https://socket-io-chat-app-liart.vercel.app/message/send/${selectedChat._id}`,
+              `https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/message/send/${selectedChat._id}`,
               {message},
               {
                   

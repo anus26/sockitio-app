@@ -27,7 +27,7 @@ const Signup = () => {
         confirmpassword:data.confirmpassword
     }
     // console.log(UserInfo);
-    await axios.post(" https://socket-io-chat-app-liart.vercel.app/user/singnup",UserInfo,{
+    await axios.post(" https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/singnup",UserInfo,{
       withCredentials: true,
     })
     .then((response)=>{

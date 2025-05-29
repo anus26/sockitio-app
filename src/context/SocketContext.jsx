@@ -20,7 +20,7 @@ const SocketProvider = (   {children}) => {
     console.log("🧠 AuthUser at socket init:", authUser);
   
     if (authUser?.user?._id) {
-      const socket = io("https://socket-io-chat-app-liart.vercel.app", {
+      const socket = io("https://grand-frankie-anusraza123bm-df134fa3.koyeb.app", {
         auth: {
           userId: authUser.user._id 
         },

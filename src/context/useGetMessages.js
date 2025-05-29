@@ -16,7 +16,7 @@ const useGetMessages = () => {
 
         try {
           const response = await axios.get(
-            `https://socket-io-chat-app-liart.vercel.app/message/get/${selectedChat._id}`,
+            `https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/message/get/${selectedChat._id}`,
             {
               withCredentials: true,
               headers: {

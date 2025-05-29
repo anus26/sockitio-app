@@ -15,7 +15,7 @@ const useGetAllUser = () => {
       try {
         const token = Cookies.get('jwt');
         const { data } = await axios.get(
-          'https://socket-io-chat-app-liart.vercel.app/user/alluser',
+          'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser',
           {
             withCredentials: true,
             headers: { Authorization: `Bearer ${token}` },
