@@ -18,7 +18,7 @@ const useGetAllUser = () => {
           'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser',
           {
             withCredentials: true,
- 
+            headers: { Authorization: `Bearer ${token}` },
           }
         );
         setUsers(Array.isArray(data) ? data : []);
