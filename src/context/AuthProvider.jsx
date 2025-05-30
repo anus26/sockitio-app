@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useState } from 'react'
-import Cookies from 'js-cookie'; 
 
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-const raw = Cookies.get("jwt") || localStorage.getItem("chatapp");
+const raw =  localStorage.getItem("chatapp");
 let parsed = undefined;
 
 try {

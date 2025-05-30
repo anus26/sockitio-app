@@ -20,7 +20,10 @@ const SocketProvider = (   {children}) => {
     console.log("🧠 AuthUser at socket init:", authUser);
   
     if (authUser?.user?._id) {
-      const socket = io("https://grand-frankie-anusraza123bm-df134fa3.koyeb.app", {
+      const socket = io(
+        "https://grand-frankie-anusraza123bm-df134fa3.koyeb.app"
+                //  'http://localhost:3000'
+        , {
         auth: {
           userId: authUser.user._id 
         },

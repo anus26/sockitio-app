@@ -16,7 +16,9 @@ const useGetMessages = () => {
 
         try {
           const response = await axios.get(
-            `https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/message/get/${selectedChat._id}`,
+            `https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/message/get/${selectedChat._id}`
+            // `http://localhost:3000/message/get/${selectedChat._id}`
+            ,
             {
               withCredentials: true,
               headers: {
