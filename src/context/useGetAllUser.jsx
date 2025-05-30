@@ -15,7 +15,7 @@ const useGetAllUser = () => {
       try {
         const token = Cookies.get('jwt');
         const { data } = await axios.get(
-          'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser'{,
+          'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser',{
           headers: { Authorization: `Bearer ${token}` },
           
             withCredentials: true,
