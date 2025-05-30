@@ -4,12 +4,17 @@ import Cookies from 'js-cookie';
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-const initialUserState=
-Cookies.get("jwt")||localStorage.getItem("chatapp")
+const raw = Cookies.get("jwt") || localStorage.getItem("chatapp");
+let parsed = undefined;
 
-  const [authUser, setAuthUser] = useState(
-    initialUserState ? JSON.parse(initialUserState) : undefined
-  );
+try {
+  parsed = raw ? JSON.parse(raw) : undefined;
+} catch (e) {
+  console.error("Failed to parse auth user data:", e);
+}
+
+const [authUser, setAuthUser] = useState(parsed);
+
 
   return (
     <AuthContext.Provider value={[authUser, setAuthUser]}>
