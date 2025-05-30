@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from '../context/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import js from '@eslint/js';
-import Cookies from "js-cookie"
+
 
 const Signup = () => {
     const [authUser,setAuthUser]= useAuth()
@@ -38,7 +37,7 @@ const Signup = () => {
             toast.success("successfully registerd")
         }
         localStorage.setItem("chatapp",JSON.stringify(response.data))
-    Cookies.set("jwt", response.data.token);        
+          
         setAuthUser(response.data)
 
     })
