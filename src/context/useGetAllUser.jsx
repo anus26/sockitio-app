@@ -15,15 +15,16 @@ const useGetAllUser = () => {
       try {
         const token = Cookies.get('jwt');
         const { data } = await axios.get(
-          'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser',
-          {
+          'https://grand-frankie-anusraza123bm-df134fa3.koyeb.app/user/alluser'{,
+          headers: { Authorization: `Bearer ${token}` },
+          
             withCredentials: true,
-            headers: { Authorization: `Bearer ${token}` },
           }
         );
         setUsers(Array.isArray(data) ? data : []);
         console.log(Array.isArray(data) ? data : []);
-        
+        console.log("Token from cookie:", Cookies.get("jwt"));
+
       } catch (err) {
         console.error('Error fetching users:', err);
         setUsers([]);
