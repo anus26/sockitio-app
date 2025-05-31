@@ -12,8 +12,8 @@ const Right = () => {
   }, [setSelectedChat]);
 
   return (
-    <div className="bg-blue-900  w-[70%] text-gray-300 flex flex-col h-screen md:hidden sm:hidden lg:block xl:block  ">
-{/* <div className={`lg-block ${selectedChat ? "block":"hidden"} w-full  bg-blue-900 text-gray-300 flex flex-col lg:w-[70%]`}> */}
+    // <div className="bg-blue-900  w-[70%] text-gray-300 flex flex-col h-screen md:hidden sm:hidden lg:block xl:block  ">
+  <div className={`lg:block ${selectedChat ? "block":"hidden"} w-full  bg-blue-900 text-gray-300 flex flex-col lg:w-[70%]`}> 
       {!selectedChat ? <NoChat /> : (
         <>
           <Chatuser />
