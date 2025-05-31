@@ -10,7 +10,8 @@ const {selectedChat}=useChat()
   
   return (
     // <div className="bg-black lg:w-[30%] text-gray-300 flex flex-col h-screen  w-full ">
- <div className={`lg:block ${selectedChat ? "hidden" : "block"} bg-black w-full lg:w-[30%]`}> 
+ <div className={`lg:block ${selectedChat ? "hidden" : "block"}  flex-1 overflow-y-auto  bg-black w-full lg:w-[30%]` }
+   style={{ minHeight: "calc(84vh - 10vh)" }}> 
 
       
       <div className="p-4 border-b border-gray-700">
